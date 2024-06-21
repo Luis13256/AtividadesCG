@@ -72,9 +72,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\GIT\AtividadesCG\M3\dependencies;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\GIT\AtividadesCG\M3\dependencies\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\GIT\AtividadesCG\M3\dependencies;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\GIT\AtividadesCG\M3\dependencies\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -94,13 +98,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../../dependencies/glm;../../dependencies/glfw-3.3.4.bin.WIN32/include;../../Common/include;../../dependencies/GLAD/include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\GIT\AtividadesCG\M3\dependencies;../../dependencies/glm;../../dependencies/glfw-3.3.4.bin.WIN32/include;../../Common/include;../../dependencies/GLAD/include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../../dependencies/glfw-3.3.4.bin.WIN32/lib-vc2019</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\GIT\AtividadesCG\M3\dependencies\lib;../../dependencies/glfw-3.3.4.bin.WIN32/lib-vc2019</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;glu32.lib;gdi32.lib;user32.lib;kernel32.lib;shell32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -111,12 +115,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\GIT\AtividadesCG\M3\dependencies;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;glu32.lib;gdi32.lib;user32.lib;kernel32.lib;shell32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\GIT\AtividadesCG\M3\dependencies\lib;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -129,7 +136,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;glu32.lib;gdi32.lib;user32.lib;kernel32.lib;shell32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -146,7 +153,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;glu32.lib;gdi32.lib;user32.lib;kernel32.lib;shell32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
