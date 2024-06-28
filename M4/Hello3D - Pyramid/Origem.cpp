@@ -13,6 +13,7 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include <cmath>
 
 using namespace std;
 
@@ -30,6 +31,10 @@ using namespace std;
 #include "Shader.h"
 
 #include "Mesh.h"
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+
+const float Pi = 3.1419f;
 
 
 // Protótipo da função de callback de teclado
@@ -41,6 +46,9 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 // Protótipos das funções
 int setupGeometry();
 int loadSimpleOBJ(string filepath, int &nVerts, glm::vec3 color = glm::vec3(1.0,0.0,1.0));
+int generateCircle(float radius, int nPoints);
+int setupSprite();
+int loadTexture(string path);
 
 // Dimensões da janela (pode ser alterado em tempo de execução)
 const GLuint WIDTH = 1000, HEIGHT = 1000;
@@ -82,9 +90,9 @@ int main()
 	// Fazendo o registro da função de callback para a janela GLFW
 	glfwSetKeyCallback(window, key_callback);
 	glfwSetCursorPosCallback(window, mouse_callback);
-	
 
-	glfwSetCursorPos(window,WIDTH / 2, HEIGHT / 2);
+
+	glfwSetCursorPos(window, WIDTH / 2, HEIGHT / 2);
 
 
 	//Desabilita o desenho do cursor 
@@ -112,13 +120,13 @@ int main()
 
 	// Compilando e buildando o programa de shader
 	//GLuint shader.ID = setupShader();
-	Shader shader("Phong.vs","Phong.fs");
+	Shader shader("Phong.vs", "Phong.fs");
 
 	glUseProgram(shader.ID);
 
 	//Matriz de view -- posição e orientação da câmera
 	glm::mat4 view = glm::lookAt(glm::vec3(0.0, 0.0, 3.0), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 1.0, 0.0));
-	shader.setMat4("view",value_ptr(view));
+	shader.setMat4("view", value_ptr(view));
 
 	//Matriz de projeção perspectiva - definindo o volume de visualização (frustum)
 	glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)width / (float)height, 0.1f, 100.0f);
@@ -127,14 +135,14 @@ int main()
 	glEnable(GL_DEPTH_TEST);
 
 	int nVerts;
-	GLuint VAO = loadSimpleOBJ("../../3D_models/Suzanne/suzanneTriLowPoly.obj", nVerts, glm::vec3(0.0,1.0,1.0));
+	GLuint VAO = loadSimpleOBJ("../../3D_models/Suzanne/suzanneTriLowPoly.obj", nVerts, glm::vec3(0.0, 1.0, 1.0));
 	GLuint VAO2 = loadSimpleOBJ("../../3D_models/Suzanne/suzanneTriLowPoly.obj", nVerts);
 	GLuint VAO3 = loadSimpleOBJ("../../3D_models/Suzanne/suzanneTriLowPoly.obj", nVerts, glm::vec3(1.0, 1.0, 0.0));
 
 	Mesh suzanne1, suzanne2, suzanne3;
-	suzanne1.initialize(VAO, nVerts, &shader,glm::vec3(-2.75,0.0,0.0));
+	suzanne1.initialize(VAO, nVerts, &shader, glm::vec3(-2.75, 0.0, 0.0));
 	suzanne2.initialize(VAO2, nVerts, &shader);
-	suzanne3.initialize(VAO3, nVerts, &shader,glm::vec3(2.75, 0.0, 0.0));
+	suzanne3.initialize(VAO3, nVerts, &shader, glm::vec3(2.75, 0.0, 0.0));
 
 
 	//Definindo as propriedades do material da superficie
@@ -164,7 +172,7 @@ int main()
 		//Atualizando a posição e orientação da câmera
 		glm::mat4 view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
 		shader.setMat4("view", glm::value_ptr(view));
-		
+
 		//Atualizando o shader com a posição da câmera
 		shader.setVec3("cameraPos", cameraPos.x, cameraPos.y, cameraPos.z);
 
@@ -529,3 +537,148 @@ int loadSimpleOBJ(string filepath, int &nVerts, glm::vec3 color)
 
 }
 
+int generateCircle(float radius, int nPoints)
+{
+	int totalSize = (nPoints + 2) * 3;
+	GLfloat* vertices = new GLfloat[totalSize];
+
+	// Primeiro, colocamos o ponto central do círculo (x, y, z)
+	vertices[0] = 0.0f; // x
+	vertices[1] = 0.0f; // y
+	vertices[2] = 0.0f; // z
+
+	float angle = 0.0f;
+	float slice = 2 * Pi / (GLfloat)nPoints;
+	for (int i = 3; i < totalSize; i += 3)
+	{
+		float x = radius * cos(angle) * 100.0f;
+		float y = radius * sin(angle) * 100.0f;
+		float z = 0.0f;
+
+		vertices[i] = x;
+		vertices[i + 1] = y;
+		vertices[i + 2] = z;
+
+		angle += slice;
+	}
+
+	GLuint VBO, VAO;
+
+	// Geração do identificador do VBO
+	glGenBuffers(1, &VBO);
+	// Faz a conexão (vincula) do buffer como um buffer de array
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	// Envia os dados do array de floats para o buffer da OpenGl
+	glBufferData(GL_ARRAY_BUFFER, totalSize * sizeof(GLfloat), vertices, GL_STATIC_DRAW);
+
+	// Geração do identificador do VAO (Vertex Array Object)
+	glGenVertexArrays(1, &VAO);
+	// Vincula (bind) o VAO primeiro, e em seguida conecta e seta o(s) buffer(s) de vértices
+	// e os ponteiros para os atributos 
+	glBindVertexArray(VAO);
+	// Para cada atributo do vértice, criamos um "AttribPointer" (ponteiro para o atributo), indicando: 
+	// Localização no shader * (a localização dos atributos devem ser correspondentes no layout especificado no vertex shader)
+	// Número de valores que o atributo tem (por ex, 3 coordenadas xyz) 
+	// Tipo do dado
+	// Se está normalizado (entre zero e um)
+	// Tamanho em bytes 
+	// Deslocamento a partir do byte zero 
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+	glEnableVertexAttribArray(0);
+
+	// Observe que isso é permitido, a chamada para glVertexAttribPointer registrou o VBO como o objeto de buffer de vértice 
+	// atualmente vinculado - para que depois possamos desvincular com segurança
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+	// Desvincula o VAO (é uma boa prática desvincular qualquer buffer ou array para evitar bugs medonhos)
+	glBindVertexArray(0);
+
+	return VAO;
+}
+
+int setupSprite()
+{
+	GLuint VAO;
+	GLuint VBO, EBO;
+
+	float vertices[] = {
+		// posições          // cores          // coordenadas de textura
+		 0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f, // superior direito
+		 0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f, // inferior direito
+		-0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // inferior esquerdo
+		-0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f  // superior esquerdo
+	};
+	unsigned int indices[] = {
+		0, 1, 3, // primeiro triangulo
+		1, 2, 3  // segundo triangulo
+	};
+
+	glGenVertexArrays(1, &VAO);
+	glGenBuffers(1, &VBO);
+	glGenBuffers(1, &EBO);
+
+	glBindVertexArray(VAO);
+
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+	// Primeiro atributo - Layout 0 - posição - 3 valores - x, y, z
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(0);
+	// Segundo atributo - Layout 1 - cor - 3 valores - r, g, b
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+	glEnableVertexAttribArray(1);
+	// Terceiro atributo - Layout 2 - coordenadas de textura - 2 valores - s, t (ou u, v)
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+	glEnableVertexAttribArray(2);
+
+	glBindVertexArray(0); // desvincula
+
+	return VAO;
+}
+
+int loadTexture(string path)
+{
+	GLuint texID;
+
+	// Gera o identificador da textura na memória 
+	glGenTextures(1, &texID);
+	glBindTexture(GL_TEXTURE_2D, texID);
+
+	// Ajusta os parâmetros de wrapping e filtering
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+	// Carregamento da imagem
+	int width, height, nrChannels;
+	unsigned char* data = stbi_load(path.c_str(), &width, &height, &nrChannels, 0);
+
+	if (data)
+	{
+		if (nrChannels == 3) // jpg, bmp
+		{
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+		}
+		else // png
+		{
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+		}
+		glGenerateMipmap(GL_TEXTURE_2D);
+	}
+	else
+	{
+		std::cout << "Failed to load texture" << std::endl;
+	}
+
+	stbi_image_free(data);
+
+	glBindTexture(GL_TEXTURE_2D, 0);
+
+	return texID;
+}
