@@ -1,6 +1,6 @@
 #include "Mesh.h"
 
-void Mesh::initialize(GLuint VAO, int nVertices, Shader* shader, glm::vec3 position, glm::vec3 scale, float angle, glm::vec3 axis)
+void Mesh::initialize(GLuint VAO, int nVertices, Shader* shader, glm::vec3 position, glm::vec3 scale, float angle, glm::vec3 axis, GLuint texID)
 {
 	this->VAO = VAO;
 	this->nVertices = nVertices;
@@ -9,6 +9,7 @@ void Mesh::initialize(GLuint VAO, int nVertices, Shader* shader, glm::vec3 posit
 	this->scale = scale;
 	this->angle = angle;
 	this->axis = axis;
+	this->textureID = texID;
 }
 
 void Mesh::update()
@@ -22,6 +23,12 @@ void Mesh::update()
 
 void Mesh::draw()
 {
+	shader->Use();
+	if (textureID) {
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, textureID);
+		shader->setInt("texture1", 0);
+	}
 	glBindVertexArray(VAO);
 	glDrawArrays(GL_TRIANGLES, 0, nVertices);
 	glBindVertexArray(0);

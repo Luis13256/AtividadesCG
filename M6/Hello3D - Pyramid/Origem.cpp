@@ -139,9 +139,12 @@ int main()
 	GLuint VAO2 = loadSimpleOBJ("../../3D_models/Suzanne/suzanneTriLowPoly.obj", nVerts);
 	GLuint VAO3 = loadSimpleOBJ("../../3D_models/Suzanne/suzanneTriLowPoly.obj", nVerts, glm::vec3(1.0, 1.0, 0.0));
 
+	GLuint textureID = loadTexture("../../textures/wall.jpg"); // Replace with your texture file path
+
+
 	Mesh suzanne1, suzanne2, suzanne3;
 	suzanne1.initialize(VAO, nVerts, &shader, glm::vec3(-2.75, 0.0, 0.0));
-	suzanne2.initialize(VAO2, nVerts, &shader);
+	suzanne2.initialize(VAO2, nVerts, &shader, glm::vec3(0.0, 0.0, 0.0), glm::vec3(1.0, 1.0, 1.0), 0.0f, glm::vec3(0.0, 1.0, 0.0), textureID); // Add textureID here
 	suzanne3.initialize(VAO3, nVerts, &shader, glm::vec3(2.75, 0.0, 0.0));
 
 
