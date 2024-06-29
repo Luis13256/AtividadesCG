@@ -48,6 +48,7 @@ float sensitivity = 0.05;
 float pitch = 0.0, yaw = -90.0;
 float angle1 = 0.0f;  // Inicialize o ângulo
 float angle2 = 0.0f;  // Inicialize o ângulo
+float lastFrame = 0.0f;
 
 int main()
 {
@@ -112,9 +113,9 @@ int main()
 
 	// Inicialização dos objetos
 	Mesh suzanne1, suzanne2, suzanne3;
-	suzanne1.initialize(VAO, nVerts, &shader, glm::vec3(-2.75, 0.0, 0.0), glm::vec3(1.0, 1.0, 1.0), 0.0f, glm::vec3(0.0, 1.0, 0.0), textureID2);
+	suzanne1.initialize(VAO, nVerts, &shader, glm::vec3(-2.75, 0.0, 0.0), glm::vec3(1.0, 1.0, 1.0), 0.0f, glm::vec3(0.0, 1.0, 0.0), textureID2, 50.0f);
 	suzanne2.initialize(VAO2, nVerts, &shader, glm::vec3(0.0, 0.0, 0.0), glm::vec3(1.0, 1.0, 1.0), 0.0f, glm::vec3(0.0, 1.0, 0.0), textureID);
-	suzanne3.initialize(VAO3, nVerts, &shader, glm::vec3(2.75, 0.0, 0.0), glm::vec3(1.0, 1.0, 1.0), 0.0f, glm::vec3(0.0, 1.0, 0.0), textureID3);
+	suzanne3.initialize(VAO3, nVerts, &shader, glm::vec3(2.75, 0.0, 0.0), glm::vec3(1.0, 1.0, 1.0), 0.0f, glm::vec3(0.0, 1.0, 0.0), textureID3, 90.0f);
 
 
 
@@ -132,11 +133,16 @@ int main()
 	// Loop da aplicação - "game loop"
 	while (!glfwWindowShouldClose(window))
 	{
+
+		float currentFrame = glfwGetTime();
+		float deltaTime = currentFrame - lastFrame;
+		lastFrame = currentFrame;
+
 		// Checa se houveram eventos de input (key pressed, mouse moved etc.) e chama as funções de callback correspondentes
 		glfwPollEvents();
 
 		// Limpa o buffer de cor
-		glClearColor(1.0f, 1.0f, 1.0f, 1.0f); //cor de fundo
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f); //cor de fundo
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		glLineWidth(10);
@@ -173,15 +179,15 @@ int main()
 
 		// Chamada de desenho - drawcall
 		shader.setFloat("q", 10.0);
-		suzanne1.update();
+		suzanne1.update(deltaTime);
 		suzanne1.draw();
 
 		shader.setFloat("q", 1.0);
-		suzanne2.update();
+		suzanne2.update(deltaTime);
 		suzanne2.draw();
 
 		shader.setFloat("q", 250.0);
-		suzanne3.update();
+		suzanne3.update(deltaTime);
 		suzanne3.draw();
 
 		// Troca os buffers da tela
