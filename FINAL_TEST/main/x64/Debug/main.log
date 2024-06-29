@@ -1,15 +1,16 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (Hello3D - Phong.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   Origem.cpp
 C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(47,19): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(118,24): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(219,20): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(244,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(245,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(249,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(250,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(252,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(253,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(383,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(396,26): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(423,26): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(122,24): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(123,24): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(223,20): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(248,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(249,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(253,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(254,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(256,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(257,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(387,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(400,26): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(427,26): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   main.vcxproj -> C:\GIT\AtividadesCG\FINAL_TEST\x64\Debug\Final_test.exe

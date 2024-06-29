@@ -86,6 +86,8 @@ int main()
 	// Compilando e buildando o programa de shader
 	Shader shader("Phong.vs", "Phong.fs");
 
+
+
 	glUseProgram(shader.ID);
 
 	//Matriz de view -- posição e orientação da câmera
@@ -99,30 +101,32 @@ int main()
 	glEnable(GL_DEPTH_TEST);
 
 	int nVerts;
-	GLuint VAO = loadSimpleOBJ("../../3D_models/Planetas/planeta.obj", nVerts );
-	GLuint VAO2 = loadSimpleOBJ("../../3D_models/Suzanne/suzanneTriLowPoly.obj", nVerts);
+	GLuint VAO = loadSimpleOBJ("../../3D_models/Planetas/planeta.obj", nVerts, glm::vec3(0.6, 0.8, 1.0)); // Cor azul clara
+	GLuint VAO2 = loadSimpleOBJ("../../3D_models/Suzanne/suzanneTriLowPoly.obj", nVerts, glm::vec3(0.8f, 0.8f, 0.8f));
 	GLuint VAO3 = loadSimpleOBJ("../../3D_models/Planetas/planeta.obj", nVerts, glm::vec3(1.0, 1.0, 0.0));
 
-	GLuint textureID = loadTexture("../../textures/wall.jpg"); 
+	// Carregamento de texturas
+	GLuint textureID = loadTexture("../../textures/wall.jpg");
 	GLuint textureID2 = loadTexture("../../textures/Terra.jpg");
 	GLuint textureID3 = loadTexture("../../textures/2k_mercury.jpg");
 
-
+	// Inicialização dos objetos
 	Mesh suzanne1, suzanne2, suzanne3;
 	suzanne1.initialize(VAO, nVerts, &shader, glm::vec3(-2.75, 0.0, 0.0), glm::vec3(1.0, 1.0, 1.0), 0.0f, glm::vec3(0.0, 1.0, 0.0), textureID2);
-	suzanne2.initialize(VAO2, nVerts, &shader, glm::vec3(0.0, 0.0, 0.0), glm::vec3(1.0, 1.0, 1.0), 0.0f, glm::vec3(0.0, 1.0, 0.0), textureID); 
+	suzanne2.initialize(VAO2, nVerts, &shader, glm::vec3(0.0, 0.0, 0.0), glm::vec3(1.0, 1.0, 1.0), 0.0f, glm::vec3(0.0, 1.0, 0.0), textureID);
 	suzanne3.initialize(VAO3, nVerts, &shader, glm::vec3(2.75, 0.0, 0.0), glm::vec3(1.0, 1.0, 1.0), 0.0f, glm::vec3(0.0, 1.0, 0.0), textureID3);
 
 
-	//Definindo as propriedades do material da superficie
-	shader.setFloat("ka", 0.2);
-	shader.setFloat("kd", 0.5);
-	shader.setFloat("ks", 0.5);
-	shader.setFloat("q", 10.0);
 
-	//Definindo a fonte de luz pontual
+	// Definindo as propriedades do material da superfície
+	shader.setFloat("ka", 0.2);  // Ambiente
+	shader.setFloat("kd", 0.8);  // Difuso
+	shader.setFloat("ks", 0.5);  // Especular
+	shader.setFloat("q", 10.0);  // Exponente de especularidade
+
+	// Definindo a fonte de luz pontual
 	shader.setVec3("lightPos", -2.0, 10.0, 2.0);
-	shader.setVec3("lightColor", 1.0, 1.0, 0.0);
+	shader.setVec3("lightColor", 1.0, 1.0, 1.0);  // Luz branca intensa
 
 
 	// Loop da aplicação - "game loop"
@@ -216,7 +220,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 		rotateZ = true;
 	}
 
-	float cameraSpeed = 0.05;
+	float cameraSpeed = 0.3;
 
 	if (key == GLFW_KEY_W)
 	{
