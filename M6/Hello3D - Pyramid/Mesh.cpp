@@ -33,3 +33,11 @@ void Mesh::draw()
 	glDrawArrays(GL_TRIANGLES, 0, nVertices);
 	glBindVertexArray(0);
 }
+
+void Mesh::setPosition(const glm::vec3& newPosition) {
+	position = newPosition;
+}
+
+glm::vec3 Mesh::getPosition() const {
+	return position;
+}

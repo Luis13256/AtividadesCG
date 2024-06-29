@@ -179,6 +179,10 @@ int main()
 		//Atualizando o shader com a posição da câmera
 		shader.setVec3("cameraPos", cameraPos.x, cameraPos.y, cameraPos.z);
 
+		glm::vec3 pos1 = suzanne1.getPosition();
+		pos1.x += 0.01f;  // Ajuste a velocidade conforme necessário
+		suzanne1.setPosition(pos1);
+
 		// Chamada de desenho - drawcall
 		shader.setFloat("q", 10.0);
 		suzanne1.update();
