@@ -5,6 +5,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{22F2D7EC-DEFA-4D5F-A394-F953F3F456DE}|main\\main.vcxproj|C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\Origem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{22F2D7EC-DEFA-4D5F-A394-F953F3F456DE}|main\\main.vcxproj|solutionrelative:main\\Origem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22F2D7EC-DEFA-4D5F-A394-F953F3F456DE}|main\\main.vcxproj|C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\Phong.fs||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{22F2D7EC-DEFA-4D5F-A394-F953F3F456DE}|main\\main.vcxproj|solutionrelative:main\\Phong.fs||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22F2D7EC-DEFA-4D5F-A394-F953F3F456DE}|main\\main.vcxproj|C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\Phong.vs||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{22F2D7EC-DEFA-4D5F-A394-F953F3F456DE}|main\\main.vcxproj|solutionrelative:main\\Phong.vs||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +22,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Phong.vs",
+              "DocumentMoniker": "C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\Phong.vs",
+              "RelativeDocumentMoniker": "main\\Phong.vs",
+              "ToolTip": "C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\Phong.vs",
+              "RelativeToolTip": "main\\Phong.vs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-06-29T17:36:16.847Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Phong.fs",
+              "DocumentMoniker": "C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\Phong.fs",
+              "RelativeDocumentMoniker": "main\\Phong.fs",
+              "ToolTip": "C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\Phong.fs",
+              "RelativeToolTip": "main\\Phong.fs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-06-29T17:36:15.834Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,7 +58,7 @@
               "RelativeDocumentMoniker": "main\\Origem.cpp",
               "ToolTip": "C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\Origem.cpp",
               "RelativeToolTip": "main\\Origem.cpp",
-              "ViewState": "AQIAADYAAAAAAAAAAAAAAEwAAAAAAAAA",
+              "ViewState": "AQIAAEwAAAAAAAAAAAAtwFkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-06-29T16:42:59.533Z",
               "EditorCaption": ""

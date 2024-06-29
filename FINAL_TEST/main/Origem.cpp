@@ -46,6 +46,8 @@ bool firstMouse = true;
 float lastX, lastY;
 float sensitivity = 0.05;
 float pitch = 0.0, yaw = -90.0;
+float angle1 = 0.0f;  // Inicialize o ângulo
+float angle2 = 0.0f;  // Inicialize o ângulo
 
 int main()
 {
@@ -97,17 +99,19 @@ int main()
 	glEnable(GL_DEPTH_TEST);
 
 	int nVerts;
-	GLuint VAO = loadSimpleOBJ("../../3D_models/Suzanne/suzanneTriLowPoly.obj", nVerts, glm::vec3(0.0, 1.0, 1.0));
+	GLuint VAO = loadSimpleOBJ("../../3D_models/Planetas/planeta.obj", nVerts );
 	GLuint VAO2 = loadSimpleOBJ("../../3D_models/Suzanne/suzanneTriLowPoly.obj", nVerts);
-	GLuint VAO3 = loadSimpleOBJ("../../3D_models/Suzanne/suzanneTriLowPoly.obj", nVerts, glm::vec3(1.0, 1.0, 0.0));
+	GLuint VAO3 = loadSimpleOBJ("../../3D_models/Planetas/planeta.obj", nVerts, glm::vec3(1.0, 1.0, 0.0));
 
 	GLuint textureID = loadTexture("../../textures/wall.jpg"); 
+	GLuint textureID2 = loadTexture("../../textures/Terra.jpg");
+	GLuint textureID3 = loadTexture("../../textures/2k_mercury.jpg");
 
 
 	Mesh suzanne1, suzanne2, suzanne3;
-	suzanne1.initialize(VAO, nVerts, &shader, glm::vec3(-2.75, 0.0, 0.0));
+	suzanne1.initialize(VAO, nVerts, &shader, glm::vec3(-2.75, 0.0, 0.0), glm::vec3(1.0, 1.0, 1.0), 0.0f, glm::vec3(0.0, 1.0, 0.0), textureID2);
 	suzanne2.initialize(VAO2, nVerts, &shader, glm::vec3(0.0, 0.0, 0.0), glm::vec3(1.0, 1.0, 1.0), 0.0f, glm::vec3(0.0, 1.0, 0.0), textureID); 
-	suzanne3.initialize(VAO3, nVerts, &shader, glm::vec3(2.75, 0.0, 0.0));
+	suzanne3.initialize(VAO3, nVerts, &shader, glm::vec3(2.75, 0.0, 0.0), glm::vec3(1.0, 1.0, 1.0), 0.0f, glm::vec3(0.0, 1.0, 0.0), textureID3);
 
 
 	//Definindo as propriedades do material da superficie
@@ -142,8 +146,26 @@ int main()
 		shader.setVec3("cameraPos", cameraPos.x, cameraPos.y, cameraPos.z);
 
 		glm::vec3 pos1 = suzanne1.getPosition();
-		pos1.x += 0.01f;  // Ajuste a velocidade conforme necessário
+
+		// Atualização da posição para movimento circular
+		angle1 += 0.01f;  // Ajuste a velocidade do movimento circular
+		float radius = 3.0f;  // Defina o raio do círculo
+
+
+		pos1.x = radius * cos(angle1);
+		pos1.z = radius * sin(angle1);
 		suzanne1.setPosition(pos1);
+
+		glm::vec3 pos2 = suzanne3.getPosition();
+
+		// Atualização da posição para movimento circular
+		angle2 -= 0.01f;  // Ajuste a velocidade do movimento circular
+		float radius2 = 6.0f;  // Defina o raio do círculo
+
+		pos2.x = radius2 * cos(angle2);
+		pos2.z = radius2 * sin(angle2);
+		suzanne3.setPosition(pos2);
+
 
 		// Chamada de desenho - drawcall
 		shader.setFloat("q", 10.0);
@@ -212,8 +234,6 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 	{
 		cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
 	}
-
-
 
 }
 
