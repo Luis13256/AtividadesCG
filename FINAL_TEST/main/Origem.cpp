@@ -39,7 +39,6 @@ float lastFrame = 0.0f;
 
 void drawObject(Shader& shader, Mesh& mesh, float q, float deltaTime);
 glm::vec3 rotateAroundCenter(float angle, float radius, const glm::vec3& center = glm::vec3(0.0f));
-glm::vec3 translate(const glm::vec3& position, const glm::vec3& translation);
 
 int main() {
     // Inicialização da GLFW
@@ -121,10 +120,11 @@ int main() {
 
     // Loop da aplicação - "game loop"
     while (!glfwWindowShouldClose(window)) {
+        
         float currentFrame = glfwGetTime();
         float deltaTime = currentFrame - lastFrame;
         lastFrame = currentFrame;
-
+        
         // Checa eventos de input e chama as funções de callback correspondentes
         glfwPollEvents();
 
@@ -140,6 +140,7 @@ int main() {
         shader.setVec3("cameraPos", callbackManager.getCameraPos().x, callbackManager.getCameraPos().y, callbackManager.getCameraPos().z);
 
         if (callbackManager.isObjectsMoving()) {
+
             // Atualiza a posição dos objetos para movimento circular
             angle1 += 0.01f;  // Ajuste a velocidade do movimento circular
             float radius1 = 3.0f;
@@ -150,6 +151,7 @@ int main() {
             float radius2 = 6.0f;
             glm::vec3 pos2 = rotateAroundCenter(angle2, radius2);
             mesh_mercury.setPosition(pos2);
+
         }
 
         // Desenha os objetos
@@ -159,6 +161,8 @@ int main() {
 
         // Troca os buffers da tela
         glfwSwapBuffers(window);
+
+        
     }
 
     // Desaloca os buffers do OpenGL
@@ -191,8 +195,4 @@ glm::vec3 rotateAroundCenter(float angle, float radius, const glm::vec3& center)
     position.z = center.z + radius * sin(angle);
     position.y = center.y; // Assuming rotation around the Y-axis
     return position;
-}
-
-glm::vec3 translate(const glm::vec3& position, const glm::vec3& translation) {
-    return position + translation;
 }
