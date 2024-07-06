@@ -21,12 +21,16 @@
   <ItemGroup>
     <ClCompile Include="..\..\Common\src\glad.c" />
     <ClCompile Include="..\..\Common\src\Shader.cpp" />
+    <ClCompile Include="HelperFunctions.cpp" />
+    <ClCompile Include="HelperFunctions.h" />
     <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="MouseKeyCallbackManager.cpp" />
     <ClCompile Include="Origem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Common\include\Shader.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="MouseKeyCallbackManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Phong.fs" />

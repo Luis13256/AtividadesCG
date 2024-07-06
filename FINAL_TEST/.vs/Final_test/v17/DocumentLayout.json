@@ -7,23 +7,20 @@
       "RelativeMoniker": "D:0:0:{22F2D7EC-DEFA-4D5F-A394-F953F3F456DE}|main\\main.vcxproj|solutionrelative:main\\Origem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{22F2D7EC-DEFA-4D5F-A394-F953F3F456DE}|main\\main.vcxproj|C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\Mesh.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{22F2D7EC-DEFA-4D5F-A394-F953F3F456DE}|main\\main.vcxproj|solutionrelative:main\\Mesh.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{22F2D7EC-DEFA-4D5F-A394-F953F3F456DE}|main\\main.vcxproj|C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\MouseKeyCallbackManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{22F2D7EC-DEFA-4D5F-A394-F953F3F456DE}|main\\main.vcxproj|solutionrelative:main\\MouseKeyCallbackManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{22F2D7EC-DEFA-4D5F-A394-F953F3F456DE}|main\\main.vcxproj|C:\\GIT\\AtividadesCG\\Common\\src\\glad.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{22F2D7EC-DEFA-4D5F-A394-F953F3F456DE}|main\\main.vcxproj|C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\HelperFunctions.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{22F2D7EC-DEFA-4D5F-A394-F953F3F456DE}|main\\main.vcxproj|solutionrelative:main\\HelperFunctions.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{22F2D7EC-DEFA-4D5F-A394-F953F3F456DE}|main\\main.vcxproj|C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\Mesh.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{22F2D7EC-DEFA-4D5F-A394-F953F3F456DE}|main\\main.vcxproj|solutionrelative:main\\Mesh.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{22F2D7EC-DEFA-4D5F-A394-F953F3F456DE}|main\\main.vcxproj|C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\HelperFunctions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{22F2D7EC-DEFA-4D5F-A394-F953F3F456DE}|main\\main.vcxproj|solutionrelative:main\\HelperFunctions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{22F2D7EC-DEFA-4D5F-A394-F953F3F456DE}|main\\main.vcxproj|C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\Phong.fs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{22F2D7EC-DEFA-4D5F-A394-F953F3F456DE}|main\\main.vcxproj|solutionrelative:main\\Phong.fs||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{22F2D7EC-DEFA-4D5F-A394-F953F3F456DE}|main\\main.vcxproj|C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\Phong.vs||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{22F2D7EC-DEFA-4D5F-A394-F953F3F456DE}|main\\main.vcxproj|solutionrelative:main\\Phong.vs||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{22F2D7EC-DEFA-4D5F-A394-F953F3F456DE}|main\\main.vcxproj|C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\MouseKeyCallbackManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{22F2D7EC-DEFA-4D5F-A394-F953F3F456DE}|main\\main.vcxproj|solutionrelative:main\\MouseKeyCallbackManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -33,70 +30,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "glad.c",
-              "DocumentMoniker": "C:\\GIT\\AtividadesCG\\Common\\src\\glad.c",
-              "RelativeDocumentMoniker": "..\\Common\\src\\glad.c",
-              "ToolTip": "C:\\GIT\\AtividadesCG\\Common\\src\\glad.c",
-              "RelativeToolTip": "..\\Common\\src\\glad.c",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAF0AAABNAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-06-30T01:59:49.443Z",
+              "DocumentIndex": 1,
+              "Title": "MouseKeyCallbackManager.h",
+              "DocumentMoniker": "C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\MouseKeyCallbackManager.h",
+              "RelativeDocumentMoniker": "main\\MouseKeyCallbackManager.h",
+              "ToolTip": "C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\MouseKeyCallbackManager.h",
+              "RelativeToolTip": "main\\MouseKeyCallbackManager.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-07-06T01:13:01.842Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MouseKeyCallbackManager.cpp",
+              "DocumentMoniker": "C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\MouseKeyCallbackManager.cpp",
+              "RelativeDocumentMoniker": "main\\MouseKeyCallbackManager.cpp",
+              "ToolTip": "C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\MouseKeyCallbackManager.cpp",
+              "RelativeToolTip": "main\\MouseKeyCallbackManager.cpp",
+              "ViewState": "AQIAABAAAAAAAAAAAAAAwDsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-07-06T01:12:54.216Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Mesh.h",
-              "DocumentMoniker": "C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\Mesh.h",
-              "RelativeDocumentMoniker": "main\\Mesh.h",
-              "ToolTip": "C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\Mesh.h",
-              "RelativeToolTip": "main\\Mesh.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAATAAAA",
+              "Title": "HelperFunctions.h",
+              "DocumentMoniker": "C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\HelperFunctions.h",
+              "RelativeDocumentMoniker": "main\\HelperFunctions.h",
+              "ToolTip": "C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\HelperFunctions.h",
+              "RelativeToolTip": "main\\HelperFunctions.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-06-29T18:40:30.617Z",
+              "WhenOpened": "2024-07-06T01:12:09.095Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Mesh.cpp",
-              "DocumentMoniker": "C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\Mesh.cpp",
-              "RelativeDocumentMoniker": "main\\Mesh.cpp",
-              "ToolTip": "C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\Mesh.cpp",
-              "RelativeToolTip": "main\\Mesh.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC0AAAAAAAAA",
+              "DocumentIndex": 2,
+              "Title": "HelperFunctions.cpp",
+              "DocumentMoniker": "C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\HelperFunctions.cpp",
+              "RelativeDocumentMoniker": "main\\HelperFunctions.cpp",
+              "ToolTip": "C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\HelperFunctions.cpp",
+              "RelativeToolTip": "main\\HelperFunctions.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHEAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-29T18:39:35.206Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Phong.vs",
-              "DocumentMoniker": "C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\Phong.vs",
-              "RelativeDocumentMoniker": "main\\Phong.vs",
-              "ToolTip": "C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\Phong.vs",
-              "RelativeToolTip": "main\\Phong.vs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-06-29T17:36:16.847Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Phong.fs",
-              "DocumentMoniker": "C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\Phong.fs",
-              "RelativeDocumentMoniker": "main\\Phong.fs",
-              "ToolTip": "C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\Phong.fs",
-              "RelativeToolTip": "main\\Phong.fs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAAlAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-06-29T17:36:15.834Z",
+              "WhenOpened": "2024-07-06T01:11:38.264Z",
               "EditorCaption": ""
             },
             {
@@ -107,7 +92,7 @@
               "RelativeDocumentMoniker": "main\\Origem.cpp",
               "ToolTip": "C:\\GIT\\AtividadesCG\\FINAL_TEST\\main\\Origem.cpp",
               "RelativeToolTip": "main\\Origem.cpp",
-              "ViewState": "AQIAAPwBAAAAAAAAAAAAwBoCAAADAAAA",
+              "ViewState": "AQIAAKIAAAAAAAAAAAAAALoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-06-29T16:42:59.533Z",
               "EditorCaption": ""
