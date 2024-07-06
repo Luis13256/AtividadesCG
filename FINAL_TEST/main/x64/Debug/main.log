@@ -1,18 +1,17 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (Hello3D - Phong.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   Origem.cpp
 C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(47,19): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(124,24): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(125,24): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(138,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(230,20): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(255,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(256,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(260,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(261,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(263,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(264,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(394,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(407,26): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(434,26): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(121,24): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(122,24): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(135,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(223,23): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(247,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(248,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(252,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(253,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(255,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(256,10): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(384,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(397,26): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\GIT\AtividadesCG\FINAL_TEST\main\Origem.cpp(422,26): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   main.vcxproj -> C:\GIT\AtividadesCG\FINAL_TEST\x64\Debug\Final_test.exe

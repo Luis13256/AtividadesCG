@@ -36,7 +36,7 @@ int setupSprite();
 int loadTexture(string path);
 
 const GLuint WIDTH = 1000, HEIGHT = 1000;
-bool rotateX=false, rotateY=false, rotateZ=false;
+bool objectsMoving = true;
 
 glm::vec3 cameraPos = glm::vec3(0.0, 0.0, 3.0);
 glm::vec3 cameraFront = glm::vec3(0.0, 0.0, -1.0);
@@ -87,8 +87,6 @@ int main()
 	// Compilando e buildando o programa de shader
 	Shader shader("Phong.vs", "Phong.fs");
 
-
-
 	glUseProgram(shader.ID);
 
 	//Matriz de view -- posição e orientação da câmera
@@ -131,9 +129,9 @@ int main()
 
 
 	// Loop da aplicação - "game loop"
+	// Loop da aplicação - "game loop"
 	while (!glfwWindowShouldClose(window))
 	{
-
 		float currentFrame = glfwGetTime();
 		float deltaTime = currentFrame - lastFrame;
 		lastFrame = currentFrame;
@@ -155,27 +153,27 @@ int main()
 		//Atualizando o shader com a posição da câmera
 		shader.setVec3("cameraPos", cameraPos.x, cameraPos.y, cameraPos.z);
 
-		glm::vec3 pos1 = suzanne1.getPosition();
+		if (objectsMoving) {
+			glm::vec3 pos1 = suzanne1.getPosition();
 
-		// Atualização da posição para movimento circular
-		angle1 += 0.01f;  // Ajuste a velocidade do movimento circular
-		float radius = 3.0f;  // Defina o raio do círculo
+			// Atualização da posição para movimento circular
+			angle1 += 0.01f;  // Ajuste a velocidade do movimento circular
+			float radius = 3.0f;  // Defina o raio do círculo
 
+			pos1.x = radius * cos(angle1);
+			pos1.z = radius * sin(angle1);
+			suzanne1.setPosition(pos1);
 
-		pos1.x = radius * cos(angle1);
-		pos1.z = radius * sin(angle1);
-		suzanne1.setPosition(pos1);
+			glm::vec3 pos2 = suzanne3.getPosition();
 
-		glm::vec3 pos2 = suzanne3.getPosition();
+			// Atualização da posição para movimento circular
+			angle2 -= 0.01f;  // Ajuste a velocidade do movimento circular
+			float radius2 = 6.0f;  // Defina o raio do círculo
 
-		// Atualização da posição para movimento circular
-		angle2 -= 0.01f;  // Ajuste a velocidade do movimento circular
-		float radius2 = 6.0f;  // Defina o raio do círculo
-
-		pos2.x = radius2 * cos(angle2);
-		pos2.z = radius2 * sin(angle2);
-		suzanne3.setPosition(pos2);
-
+			pos2.x = radius2 * cos(angle2);
+			pos2.z = radius2 * sin(angle2);
+			suzanne3.setPosition(pos2);
+		}
 
 		// Chamada de desenho - drawcall
 		shader.setFloat("q", 10.0);
@@ -193,6 +191,7 @@ int main()
 		// Troca os buffers da tela
 		glfwSwapBuffers(window);
 	}
+
 	// Pede pra OpenGL desalocar os buffers
 	glDeleteVertexArrays(1, &VAO);
 	// Finaliza a execução da GLFW, limpando os recursos alocados por ela
@@ -202,49 +201,43 @@ int main()
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode)
 {
-	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
-		glfwSetWindowShouldClose(window, GL_TRUE);
+    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, GL_TRUE);
 
-	if (key == GLFW_KEY_X && action == GLFW_PRESS)
-	{
-		rotateX = true;
-		rotateY = false;
-		rotateZ = false;
-	}
+    if (key == GLFW_KEY_C && action == GLFW_PRESS)
+    {
+        objectsMoving = false;
+    }
 
-	if (key == GLFW_KEY_Y && action == GLFW_PRESS)
-	{
-		rotateX = false;
-		rotateY = true;
-		rotateZ = false;
-	}
+    if (key == GLFW_KEY_V && action == GLFW_PRESS)
+    {
+        objectsMoving = true;
+    }
 
-	if (key == GLFW_KEY_Z && action == GLFW_PRESS)
+	if (key == GLFW_KEY_SPACE && action == GLFW_PRESS)
 	{
-		rotateX = false;
-		rotateY = false;
-		rotateZ = true;
+		objectsMoving = !objectsMoving;
 	}
 
-	float cameraSpeed = 0.3;
 
-	if (key == GLFW_KEY_W)
-	{
-		cameraPos += cameraFront * cameraSpeed;
-	}
-	if (key == GLFW_KEY_S)
-	{
-		cameraPos -= cameraFront * cameraSpeed;
-	}
-	if (key == GLFW_KEY_A)
-	{
-		cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
-	}
-	if (key == GLFW_KEY_D)
-	{
-		cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
-	}
+    float cameraSpeed = 0.3;
 
+    if (key == GLFW_KEY_W)
+    {
+        cameraPos += cameraFront * cameraSpeed;
+    }
+    if (key == GLFW_KEY_S)
+    {
+        cameraPos -= cameraFront * cameraSpeed;
+    }
+    if (key == GLFW_KEY_A)
+    {
+        cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+    }
+    if (key == GLFW_KEY_D)
+    {
+        cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+    }
 }
 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos)
@@ -346,8 +339,6 @@ int loadSimpleOBJ(string filepath, int &nVerts, glm::vec3 color)
 		char line[100];
 		string sline;
 		
-		
-		
 		while (!inputFile.eof())
 		{
 			inputFile.getline(line, 100);
@@ -418,9 +409,7 @@ int loadSimpleOBJ(string filepath, int &nVerts, glm::vec3 color)
 					vbuffer.push_back(normals[index].z);
 				}
 			}
-
 		}
-
 	}
 	else
 	{
@@ -449,7 +438,6 @@ int loadSimpleOBJ(string filepath, int &nVerts, glm::vec3 color)
 	glBindVertexArray(0);
 
 	return VAO;
-
 }
 
 int generateCircle(float radius, int nPoints)
